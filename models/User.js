@@ -9,8 +9,15 @@ const UserSchema = new Schema({
   username: {
     type: String,
     minlength: 1,
+    required: true,
+    unique: true,
+    lowercase: true
+  },
+  password: {
+    type: String,
+    minlength: 6,
     required: true
   }
-});
+}, {timestamps});
 
 module.exports = mongoose.model('User', UserSchema);
